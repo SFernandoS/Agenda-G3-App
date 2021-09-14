@@ -30,11 +30,10 @@ export default function App() {
     <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen 
-          name='Home' 
+          name=' ' 
           component = { Tabs }
           options={{
             headerTransparent: true,
-            headerTintColor: '#FFF'
           }}
           />
         </Stack.Navigator>
