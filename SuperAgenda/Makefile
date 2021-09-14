@@ -1,5 +1,5 @@
 prepare-local:
-	cd SuperAgenda; yarn
+	yarn
 	yarn add @react-navigation/native
 	expo install react-native-screens react-native-safe-area-context
 	yarn add react-native-screens react-native-safe-area-context
