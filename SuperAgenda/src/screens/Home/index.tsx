@@ -1,4 +1,3 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { ImageBackground, Text, View } from 'react-native';
 import aboutStyle from "./style";

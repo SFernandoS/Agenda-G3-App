@@ -14,17 +14,6 @@ import Calendar from './src/screens/Calendar/index';
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
-function Tabs(){
-  return(
-    <Tab.Navigator>
-      <Tab.Screen name="Bem vindo" component={ Home }/>
-      <Tab.Screen name="Horários" component={ Times }/>
-      <Tab.Screen name="Disciplina" component={ Discipline }/>
-      <Tab.Screen name="Calendário" component={ Calendar }/>
-    </Tab.Navigator>
-  )
-}
-
 export default function App() {
   return (
     <NavigationContainer>
@@ -49,3 +38,58 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+function Tabs(){
+  return(
+    <Tab.Navigator>
+      <Tab.Screen
+        name="Bem vindo(a)"
+        component={ Home }
+        options={{
+          headerTitleAlign: 'center',
+          headerStatusBarHeight: 30,
+          headerTintColor:"#FFFFFF",
+          headerStyle: {
+          backgroundColor: "#FA5D39",
+          },
+        }}
+        />
+      <Tab.Screen
+        name="Horários"
+        component={ Times }
+        options={{
+          headerTitleAlign: 'center',
+          headerStatusBarHeight: 30,
+          headerTintColor:"#FFFFFF",
+          headerStyle: {
+          backgroundColor: "#FA5D39",
+          },
+        }}
+        />
+      <Tab.Screen
+        name="Disciplinas"
+        component={ Discipline }
+        options={{
+          headerTitleAlign: 'center',
+          headerStatusBarHeight: 30,
+          headerTintColor:"#FFFFFF",
+          headerStyle: {
+          backgroundColor: "#FA5D39",
+          },
+        }}
+        />
+      <Tab.Screen
+        name="Calendário"
+        component={ Calendar }
+        options={{
+          headerTitleAlign: 'center',
+          headerStatusBarHeight: 30,
+          headerTintColor:"#FFFFFF",
+          headerStyle: {
+          backgroundColor: "#FA5D39",
+          },
+        }}
+        />
+    </Tab.Navigator>
+  )
+}
