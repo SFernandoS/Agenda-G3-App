@@ -4,11 +4,26 @@ import { StyleSheet, Text, View } from 'react-native';
 
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
-import Home from './src/Home/index'
-import Times from './src/Times/index'
+import Home from './src/screens/Home/index'
+import Times from './src/screens/Times/index'
+import Discipline from './src/screens/Discipline/index';
+import Calendar from './src/screens/Calendar/index';
 
 const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
+
+function Tabs(){
+  return(
+    <Tab.Navigator>
+      <Tab.Screen name="Bem vindo" component={ Home }/>
+      <Tab.Screen name="Horários" component={ Times }/>
+      <Tab.Screen name="Disciplina" component={ Discipline }/>
+      <Tab.Screen name="Calendário" component={ Calendar }/>
+    </Tab.Navigator>
+  )
+}
 
 export default function App() {
   return (
@@ -16,16 +31,12 @@ export default function App() {
         <Stack.Navigator>
           <Stack.Screen 
           name='Home' 
-          component = { Home }
+          component = { Tabs }
           options={{
-            title: 'Bem-vindo',
-            headerStyle: {
-              backgroundColor: '#111'
-            },
+            headerTransparent: true,
             headerTintColor: '#FFF'
           }}
           />
-          <Stack.Screen name='Times' component = { Times }/>
         </Stack.Navigator>
     </NavigationContainer>
   );

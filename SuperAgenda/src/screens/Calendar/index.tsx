@@ -2,13 +2,10 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
 
-export default function Home( { navigation }) {
+export default function Calendar( { navigation }) {
   return (
     <View style={styles.container}>
-      <Text> Home </Text>
-      <Button
-        title="Times"
-        onPress={ () => navigation.navigate('Times', { nome: 'Jão'})}/>
+      <Text>Calendário</Text>
       <StatusBar style="auto" />
     </View>
   );

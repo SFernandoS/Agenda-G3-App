@@ -1,12 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Button, StyleSheet, Text, View } from 'react-native';
 
-
-export default function Times({ route }) {
+export default function Home( { navigation }) {
   return (
     <View style={styles.container}>
-      <Text> Meu nome é {route.params?.nome} </Text>
+      <Text>Home</Text>
       <StatusBar style="auto" />
     </View>
   );
