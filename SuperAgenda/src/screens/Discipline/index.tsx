@@ -6,7 +6,7 @@ import { StyleSheet, Text, View } from 'react-native';
 export default function Perfil() {
   return (
     <View style={styles.container}>
-      <Text> Perfil</Text>
+      <Text> Disciplinas </Text>
     </View>
   );
 }
