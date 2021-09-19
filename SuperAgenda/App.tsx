@@ -50,7 +50,7 @@ function Tabs(){
           headerStatusBarHeight: 30,
           headerTintColor:"#FFFFFF",
           headerStyle: {
-          backgroundColor: "#FA5D39",
+          backgroundColor: "#CF4646",
           },
         }}
         />
@@ -62,7 +62,7 @@ function Tabs(){
           headerStatusBarHeight: 30,
           headerTintColor:"#FFFFFF",
           headerStyle: {
-          backgroundColor: "#FA5D39",
+          backgroundColor: "#CF4646",
           },
         }}
         />
@@ -74,7 +74,7 @@ function Tabs(){
           headerStatusBarHeight: 30,
           headerTintColor:"#FFFFFF",
           headerStyle: {
-          backgroundColor: "#FA5D39",
+          backgroundColor: "#CF4646",
           },
         }}
         />
@@ -86,7 +86,7 @@ function Tabs(){
           headerStatusBarHeight: 30,
           headerTintColor:"#FFFFFF",
           headerStyle: {
-          backgroundColor: "#FA5D39",
+          backgroundColor: "#CF4646",
           },
         }}
         />

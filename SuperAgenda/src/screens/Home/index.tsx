@@ -2,7 +2,7 @@ import React from 'react';
 import { ImageBackground, Text, View } from 'react-native';
 import aboutStyle from "./style";
 
-export default function Home( { navigation }) {
+export default function Home() {
   return (
     <View style={aboutStyle.container}> 
       <ImageBackground

@@ -1,21 +1,45 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
-
-export default function Perfil() {
-  return (
-    <View style={styles.container}>
-      <Text> Disciplinas </Text>
+export default function Discipline() {
+    return (
+     <View style={styles.container}>      
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => alert('Você apertou o botao')}
+      >
+        <Text
+        style={styles.font}
+        >+</Text>       
+      </TouchableOpacity>
     </View>
-  );
-}
+    );
+  }
+
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
+    alignItems: "flex-end",
+    paddingHorizontal: 100,
+    paddingVertical: 700,
+
+
+  },
+  button: {
+    opacity:110,
+    width: 60,
+    height: 60,
+    backgroundColor: "#CF4646",
     alignItems: 'center',
     justifyContent: 'center',
+  paddingBottom: 10
+    
   },
+  font:{
+    
+      color: "white",
+      fontSize: 50,
+      
+  },
+ 
 });
