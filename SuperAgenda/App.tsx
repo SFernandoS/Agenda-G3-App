@@ -67,7 +67,7 @@ function Tabs(){
         }}
         />
       <Tab.Screen
-        name="Disciplinas"
+        name="📚Disciplinas"
         component={ Discipline }
         options={{
           headerTitleAlign: 'center',

@@ -1,29 +1,36 @@
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import reg from './Register/Reg'
 
 export default function Discipline() {
     return (
+      <View>
+        <Text style={styles.font2}>
+          Disciplina 1.<br />
+          Professor x.
+        </Text>
+        <Text style={styles.font2}>
+          Disciplina 2.<br />
+          Professor y.
+        </Text>
      <View style={styles.container}>      
       <TouchableOpacity
         style={styles.button}
-        onPress={() => alert('Você apertou o botao')}
-      >
+        onPress={() => reg()}
+        >
         <Text
         style={styles.font}
         >+</Text>       
       </TouchableOpacity>
     </View>
+        </View>
     );
   }
 
 
 const styles = StyleSheet.create({
   container: {
-    alignItems: "flex-end",
-    paddingHorizontal: 100,
-    paddingVertical: 700,
-
-
+    
   },
   button: {
     opacity:110,
@@ -41,5 +48,11 @@ const styles = StyleSheet.create({
       fontSize: 50,
       
   },
+  font2:{
+    
+    color: "#1E90FF",
+    fontSize: 50,
+    
+},
  
 });
