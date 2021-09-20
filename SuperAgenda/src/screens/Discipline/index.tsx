@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import reg from './Register/Reg'
 
 export default function Discipline() {
@@ -18,9 +19,7 @@ export default function Discipline() {
         style={styles.button}
         onPress={() => reg()}
         >
-        <Text
-        style={styles.font}
-        >+</Text>       
+        <MaterialCommunityIcons name="plus" color={"white"} size={50} />             
       </TouchableOpacity>
     </View>
         </View>
@@ -30,16 +29,17 @@ export default function Discipline() {
 
 const styles = StyleSheet.create({
   container: {
-    
+    height: '60%',
+    alignItems:'center',
+    justifyContent:'flex-end'
   },
   button: {
-    opacity:110,
-    width: 60,
-    height: 60,
+    opacity:100,
+    width: 50,
+    height: 50,
     backgroundColor: "#CF4646",
     alignItems: 'center',
     justifyContent: 'center',
-  paddingBottom: 10
     
   },
   font:{
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
   },
   font2:{
     
-    color: "#1E90FF",
+    color: "#5F10FF",
     fontSize: 50,
     
 },
