@@ -6,11 +6,11 @@ export default function Discipline() {
     return (
       <View>
         <Text style={styles.font2}>
-          Disciplina 1.<br />
+          Disciplina 1.
           Professor x.
         </Text>
         <Text style={styles.font2}>
-          Disciplina 2.<br />
+          Disciplina 2.
           Professor y.
         </Text>
      <View style={styles.container}>      

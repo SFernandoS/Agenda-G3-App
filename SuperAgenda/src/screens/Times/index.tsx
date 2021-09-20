@@ -3,7 +3,7 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 
-export default function Times({ route }) {
+export default function Times({  }) {
   return (
     <View style={styles.container}>
       <Text> Horário </Text>
