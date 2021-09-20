@@ -4,11 +4,7 @@ import { Alert, StyleSheet, Text, View } from 'react-native';
 
 export default function Reg() {
   return (
-      <View style={Styles.container}>
-    <Text style={Styles.font}>
-        salve.
-    </Text>
-      </View>
+      alert("Registrar")
     );  
 }
 
