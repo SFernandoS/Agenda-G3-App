@@ -1,16 +1,24 @@
 import React from 'react';
-import { ImageBackground, Text, View } from 'react-native';
-import aboutStyle from "./style";
+import { StyleSheet,Text ,View } from 'react-native';
 
-export default function Home() {
+export default function Home({  }) {
   return (
-    <View style={aboutStyle.container}> 
-      {/* <ImageBackground
-        resizeMode={'stretch'}
-        source={require('../../assets/aplication/notebook.jpg')} 
-        style={{flex: 1}}  
-      /> */}
-
+    <View style={styles.container}>
+     
+      
+      
     </View>
-    );  
+
+  );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    paddingVertical: 30,
+    paddingHorizontal: 30
+  },
+  
+
+});
