@@ -1,8 +1,19 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
+import useForm from 'react-native-form';
 import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
 
-class Form extends React.Component{
+export default function registerDiscipline(){
+  const = {refister, submit, errors} = useForm();
+
+  return(
+    
+  );
+}
+
+
+
+/*class Form extends React.Component{
   // constructor(){
   //   super();
 
@@ -58,7 +69,7 @@ const styles = StyleSheet.create({
     margin: 20,
   },
 });          
-
+*/
 
 /*
 ================================================================================================================
