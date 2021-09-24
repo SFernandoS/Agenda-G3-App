@@ -3,6 +3,7 @@ import { Text, View, StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { LogBox } from 'react-native';
 
 import Home from './src/screens/Home/index'
 import Times from './src/screens/Times/index'
@@ -10,6 +11,10 @@ import Discipline from './src/screens/Discipline/index';
 import Calendar from './src/screens/Calendar/index';
 
 const Tab = createBottomTabNavigator();
+
+
+
+
 
 function MyTabs() {
   return (
