@@ -1,14 +1,22 @@
 import React from "react"
 import { Button, Modal, Center, NativeBaseProvider, Text, TextArea,Image, } from "native-base"
-import { Dimensions, StyleSheet, View } from "react-native"
+import { Dimensions, StyleSheet, View, FlatList } from "react-native"
 import { useState } from "react"
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+
+import Dates from './Dates/index';
 
 
 
 const windowHeight = (Dimensions.get("window").height) - 110;
 export const Botao = () => {
+
+
+
+
   const [showModal, setShowModal] = useState(false)
+
+  
   return (
     <>
       <Button
@@ -43,7 +51,7 @@ export const Botao = () => {
             <NativeBaseProvider>
               <Center flex={1} px="3">
               <Text>
-              Disciplina(Opcional) :
+              Disciplina (Opcional) :
               </Text>
                 <Dis />
               </Center>
@@ -97,7 +105,7 @@ export const EventName = () => {
   return (
     <TextArea
       h={10}
-      placeholder="Exempolo:PROVA01"
+      placeholder="Ex: Prova 1"
       w={{
         base: "80%",
         md: "85%",
@@ -112,7 +120,7 @@ export const EventDay = () => {
   return (
     <TextArea
       h={10}
-      placeholder="Exemplo:04/08/2021"
+      placeholder="Ex: 04/08/2021"
       w={{
         base: "80%",
         md: "85%",
@@ -125,7 +133,7 @@ export const Dis = () => {
   return (
     <TextArea
       h={10}
-      placeholder="Exemplo:Cálculo"
+      placeholder="Ex: Cálculo"
       w={{
         base: "80%",
         md: "85%",
@@ -138,7 +146,7 @@ export const EventTime = () => {
   return (
     <TextArea
       h={10}
-      placeholder="Exemplo:14:30"
+      placeholder="Ex: 14:30"
       w={{
         base: "80%",
         md: "85%",
@@ -151,7 +159,7 @@ export const Description = () => {
   return (
     <TextArea
       h={10}
-      placeholder="Limites e Derivadas"
+      placeholder="Ex: Limites e Derivadas"
       w={{
         base: "80%",
         md: "85%",
@@ -171,43 +179,39 @@ export default () => {
 
 
     <NativeBaseProvider>
-     
-     <View style={styles.cont}>
-     <View style={styles.container}>
-      <View style={styles.topContainer}>
-        <View style={styles.metaContainer}>
-          <View>
-            <Text style={styles.timings}>24/09  16:00</Text>
-            <Text style={styles.description}>Evento 1</Text>
+      <View style={styles.calendario}><Dates></Dates></View>
+        <View style={styles.cont}>
+          <View style={styles.container}>
+            <View style={styles.topContainer}>
+              <View style={styles.metaContainer}>
+                <View>
+                  <Text style={styles.timings}>24/09  16:00</Text>
+                  <Text style={styles.description}>Evento 1</Text>
+                </View>
+              </View>
+            </View>
           </View>
-          
         </View>
-      </View>
-    </View>
-    </View>
 
-    <View style={styles.cont0}>
-     <View style={styles.container2}>
-      <View style={styles.topContainer}>
-        <View style={styles.metaContainer}>
-          <View>
-            <Text style={styles.timings}>28/09  10:00</Text>
-            <Text style={styles.description}>Evento 2</Text>
+        <View style={styles.cont0}>
+          <View style={styles.container2}>
+            <View style={styles.topContainer}>
+              <View style={styles.metaContainer}>
+                <View>
+                  <Text style={styles.timings}>28/09  10:00</Text>
+                  <Text style={styles.description}>Evento 2</Text>
+                </View>
+              </View>
+            </View>
           </View>
-          
         </View>
-      </View>
-    </View>
-    </View>
 
-
-
-      <Center
-        flex={1}
-        style={styles.contin}
-      >
-        <Botao />
-      </Center>
+    <Center
+      flex={1}
+      style={styles.contin}
+    >
+      <Botao />
+    </Center>
     </NativeBaseProvider>
   )
 }
@@ -235,15 +239,16 @@ const styles = StyleSheet.create({
     backgroundColor: "#fcfcfc",
   },
   cont: {
-    alignItems: 'flex-start',
-    justifyContent: 'flex-start',
+    //alignItems: 'flex-start',
+    justifyContent: 'space-evenly',
     paddingVertical: 20,
     paddingHorizontal: 30
   },
   cont0: {
     alignItems: 'flex-start',
     justifyContent: 'flex-start',
-    paddingHorizontal: 30
+    paddingHorizontal: 30,
+    
   },
 
   But: {
@@ -287,6 +292,15 @@ const styles = StyleSheet.create({
     color: 'white',
     marginTop: 5,
     fontSize: 20,
+  },
+  calendario: {
+    
+    width: "100%",
+    height: "auto",
+    justifyContent: 'space-evenly',
+    paddingTop:30,
+    paddingVertical:10,
+    paddingHorizontal: 30
   },
 
 });
