@@ -11,10 +11,10 @@ const Task = (props) => {
   return (
       <View style={styles.item}>
       <View style={styles.itemLeft}>
-        <View style={styles.square}></View>
+        <View style={styles.square}/>
       </View>
       <Text style={styles.itemText}>{props.text}</Text>
-      <View style={styles.circular}></View>
+      <View style={styles.circular}/>
     </View>
   )
 }
@@ -75,7 +75,11 @@ export default function App() {
         behavior={Platform.OS === "ios" ? "padding" : "height"}
         style={styles.writeTaskWrapper}
       >
-        <TextInput style={styles.input} placeholder={'Adicionar tarefa'} value={task} onChangeText={text => setTask(text)} />
+        <TextInput style={styles.input} 
+        placeholder={'Adicionar tarefa'} 
+        value={task} 
+        onChangeText={text => setTask(text)} 
+        />
         <TouchableOpacity 
           style={styles.button}
           onPress={() => handleAddTask()}
@@ -152,7 +156,7 @@ const styles = StyleSheet.create({
   },
   writeTaskWrapper: {
     position: 'absolute',
-    bottom: 60,
+    bottom: 30,
     width: '100%',
     flexDirection: 'row',
     justifyContent: 'space-around',
@@ -166,7 +170,7 @@ const styles = StyleSheet.create({
     borderRadius: 60,
     borderColor: '#C0C0C0',
     borderWidth: 1,
-    width: 300,
+    width: 250,
   },
   addWrapper: {
     width: 60,
@@ -187,7 +191,7 @@ const styles = StyleSheet.create({
 
 MELHORAS:
 - apertar no circula a direita e ele ficar preenchido
-- o quadrado a esquerda ficar transparente -> Deixando vermelho tarefas mais importantes
+- o quadrado a esquerda ficar transparente -> Deixando em vermelho as tarefas mais importantes
 - 
  
 
