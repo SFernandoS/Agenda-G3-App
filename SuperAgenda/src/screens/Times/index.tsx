@@ -123,6 +123,11 @@ class App extends React.Component {
     const columns = 8;
     return (
       <SafeAreaView>
+        <View style={{
+            height: 22,
+            width: 22,
+            borderColor:'#000',
+        }}/>
         <FlatList
           data={this.state.data}
           keyExtractor={item => item.id}
