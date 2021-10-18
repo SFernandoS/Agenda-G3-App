@@ -1,37 +1,97 @@
-import { usePropsResolution } from 'native-base';
 import React from 'react';
-import { StyleSheet,Text ,View } from 'react-native';
-import { paddingTop } from 'styled-system';
-import BoxChat from '../../layouts/Box';
+import { Image, StyleSheet ,View } from 'react-native';
+import BoxChat from './layouts/Box';
 
-
+/*
+---------------------------------------------------------------------------------------------------------
+                    **  TROCAR A COR DOS QUADRADOS PARA BRANCO
+                        APÓS OS TESTES
+                    **  COLOCAR O NOTEBOOKBACKGROUND NA MESMA POSIÇÃO DO MAIN
+---------------------------------------------------------------------------------------------------------
+*/
 export default function Home({  }) {
   return (
     <>
-      <View style={styles.background}>
-        {/* <View style={styles.container}> */}
-          <BoxChat color='#F50' />
-          <BoxChat color='#F9F'/>
-          <BoxChat color ='#FF0'/>
-        {/* </View > */}
-      </View>
+    <Main />
+    {/* <NotebookBackground /> */}
     </>
-
   );
 }
 
+/*
+---------------------------------------------------------------------------------------------------------
+                            Funções
+---------------------------------------------------------------------------------------------------------
+*/
+
+const Main = () => {
+  return(
+    <>
+    <View style={styles.container}>
+        {/* LOGO */}
+        
+        <Image 
+          source={require('../../assets/aplication/Subtract.png')}
+          style={styles.Logo}
+        />
+
+        <View style={styles.shadows}>
+          <BoxChat 
+            color='#FFF'
+            event01='Eventos Próximos: '
+            event02='04/07 - PROVA 01 - Cálculo' event1={undefined} event2={undefined} />
+        </View>
+
+        <View style={styles.shadows}>
+          <BoxChat 
+            color='#FFF'
+            event01='Tarefas:'
+            event02='Fazer a lista 1' event1={undefined} event2={undefined} />
+        </View>
+      </View>
+      </>
+  )
+}
+
+const NotebookBackground = () => {
+  return(
+    <View>
+      <Image 
+        source={require('../../assets/aplication/notebook.jpg')}
+        style={styles.background}
+      />
+    </View>
+  )
+}
 const styles = StyleSheet.create({
-  container: {
-    alignItems: 'center',
-    padding: 30,
-    paddingTop: 86,
+  shadows: {
+    borderRadius: 15,
+    shadowOpacity: 0.5,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+    shadowRadius: 10,
+    elevation: 10
   },
-  background: {
+  container: {
     flexGrow: 1,
     alignItems: 'center',
     justifyContent: 'space-evenly',
-    backgroundColor: '#00F',
+    backgroundColor: 'E5E5E5',
+  },
+  Logo: {
+    alignItems:'stretch',
+    justifyContent:'space-between',
+    right: '50%',
+    height: '10%',
+    width: '55%',
+    
+  },
+  background:{
+    height: '100%',
+    width: '100%',
+    position:'absolute',
   }
-  
-
 });
