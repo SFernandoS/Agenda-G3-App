@@ -101,6 +101,11 @@ export default () => {
 
     <NativeBaseProvider>
       <View style={styles.cont}>
+      <View style={{
+            height: 22,
+            width: 22,
+            borderColor:'#000',
+        }}/>
      <View style={styles.container}>
       <View style={styles.topContainer}>
         <View style={styles.metaContainer}>
