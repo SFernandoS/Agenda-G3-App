@@ -27,29 +27,32 @@ export default function Home({  }) {
 const Main = () => {
   return(
     <>
-    <View style={styles.container}>
-        {/* LOGO */}
-        
-        <Image 
-          source={require('../../assets/aplication/Subtract.png')}
-          style={styles.Logo}
-        />
+    <View>
+      <Image 
+            source={require('../../assets/aplication/marcador.png')}
+            style={styles.Logo}
+      />
+      <View style={styles.container}>
+          {/* LOGO */}
+          
+          
 
-        <View style={styles.shadows}>
-          <BoxChat 
-            color='#FFF'
-            event01='Eventos Próximos: '
-            event02='04/07 - PROVA 01 - Cálculo' event1={undefined} event2={undefined} />
-        </View>
+          <View style={styles.shadows}>
+            <BoxChat 
+              color='#FFF'
+              event01='Eventos Próximos: '
+              event02='04/07 - PROVA 01 - Cálculo' event1={undefined} event2={undefined} />
+          </View>
 
-        <View style={styles.shadows}>
-          <BoxChat 
-            color='#FFF'
-            event01='Tarefas:'
-            event02='Fazer a lista 1' event1={undefined} event2={undefined} />
+          <View style={styles.shadows}>
+            <BoxChat 
+              color='#FFF'
+              event01='Tarefas:'
+              event02='Fazer a lista 1' event1={undefined} event2={undefined} />
+          </View>
         </View>
       </View>
-      </>
+    </>
   )
 }
 
@@ -73,20 +76,23 @@ const styles = StyleSheet.create({
       height: 4,
     },
     shadowRadius: 10,
-    elevation: 10
+    elevation: 10,
+    marginVertical: 10,
   },
   container: {
     flexGrow: 1,
     alignItems: 'center',
     justifyContent: 'space-evenly',
-    backgroundColor: 'E5E5E5',
+    //backgroundColor: 'E5E5E5',
   },
   Logo: {
-    alignItems:'stretch',
-    justifyContent:'space-between',
-    right: '50%',
+    //alignItems:'stretch',
+    //justifyContent:'space-between',
+    //right: '10%',
     height: '10%',
-    width: '55%',
+    width: '50%',
+    marginTop: 25,
+    marginVertical: 20,
     
   },
   background:{
