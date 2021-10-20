@@ -1,298 +1,203 @@
-import React from "react";
-import { FlatList, SafeAreaView, StyleSheet, Text, View } from "react-native";
-import { height } from "styled-system";
+import React, {useState} from 'react';
+import { KeyboardAvoidingView, StyleSheet, Text, View, TextInput, TouchableOpacity, Keyboard, ScrollView, Platform, Button } from 'react-native';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-class App extends React.Component {
-  state = {
-    data: [
-      { id: "00", name: "HORAS" },
-      { id: "01", name: "D" },
-      { id: "02", name: "S" },
-      { id: "03", name: "T" },
-      { id: "04", name: "Q" },
-      { id: "05", name: "Q" },
-      { id: "06", name: "S" },
-      { id: "07", name: "S" },
-      
+/* 
+aparência da tarefa
+quando coloca text="tarefa 1" o texto dessa função muda
+criando outra função que pega o texto do input e joga pra cá -> temos uma noa tarefa
+*/
+const Task = (props) => {
+  return (
+      <View style={styles.item}>
+      <View style={styles.itemLeft}>
+        <View style={styles.square}/>
+      </View>
+      <Text style={styles.itemText}>{props.text}</Text>
+      <View style={styles.circular}/>
+    </View>
+  )
+}
+export default function App() {
+  const [task, setTask] = useState();
+  const [taskItems, setTaskItems] = useState([]);
 
-    ],
-    hora1: [
-      { id: "00", name: "08:00"},
-      { id: "01", name: <input style={{backgroundColor:'transparent', border:0, height:32, maxWidth:150, textAlign:'center'}}type="text" />},
-      { id: "02", name: <input style={{backgroundColor:'transparent', border:0, height:32, maxWidth:150, textAlign:'center'}}type="text" />},
-      { id: "03", name: <input style={{backgroundColor:'transparent', border:0, height:32, maxWidth:150, textAlign:'center'}}type="text" />},
-      { id: "04", name: <input style={{backgroundColor:'transparent', border:0, height:32, maxWidth:150, textAlign:'center'}}type="text" />},
-      { id: "05", name: <input style={{backgroundColor:'transparent', border:0, height:32, maxWidth:150, textAlign:'center'}}type="text" />},
-      { id: "06", name: <input style={{backgroundColor:'transparent', border:0, height:32, maxWidth:150, textAlign:'center'}}type="text" />},
-      { id: "07", name: <input style={{backgroundColor:'transparent', border:0, height:32, maxWidth:150, textAlign:'center'}}type="text" />},
-    ],
-    hora2: [
-      { id: "00", name: "08:00"},
-      { id: "01", name: <input style={{backgroundColor:'transparent', border:0, height:32, maxWidth:150, textAlign:'center'}}type="text" />},
-      { id: "02", name: <input style={{backgroundColor:'transparent', border:0, height:32, maxWidth:150, textAlign:'center'}}type="text" />},
-      { id: "03", name: <input style={{backgroundColor:'transparent', border:0, height:32, maxWidth:150, textAlign:'center'}}type="text" />},
-      { id: "04", name: <input style={{backgroundColor:'transparent', border:0, height:32, maxWidth:150, textAlign:'center'}}type="text" />},
-      { id: "05", name: <input style={{backgroundColor:'transparent', border:0, height:32, maxWidth:150, textAlign:'center'}}type="text" />},
-      { id: "06", name: <input style={{backgroundColor:'transparent', border:0, height:32, maxWidth:150, textAlign:'center'}}type="text" />},
-      { id: "07", name: <input style={{backgroundColor:'transparent', border:0, height:32, maxWidth:150, textAlign:'center'}}type="text" />},
-    ],
-    hora3: [
-      { id: "00", name: "10:00"},
-      { id: "01", name: <input style={{backgroundColor:'transparent', border:0, height:32, maxWidth:150, textAlign:'center'}}type="text" />},
-      { id: "02", name: <input style={{backgroundColor:'transparent', border:0, height:32, maxWidth:150, textAlign:'center'}}type="text" />},
-      { id: "03", name: <input style={{backgroundColor:'transparent', border:0, height:32, maxWidth:150, textAlign:'center'}}type="text" />},
-      { id: "04", name: <input style={{backgroundColor:'transparent', border:0, height:32, maxWidth:150, textAlign:'center'}}type="text" />},
-      { id: "05", name: <input style={{backgroundColor:'transparent', border:0, height:32, maxWidth:150, textAlign:'center'}}type="text" />},
-      { id: "06", name: <input style={{backgroundColor:'transparent', border:0, height:32, maxWidth:150, textAlign:'center'}}type="text" />},
-      { id: "07", name: <input style={{backgroundColor:'transparent', border:0, height:32, maxWidth:150, textAlign:'center'}}type="text" />},
-    ],
-    hora4: [
-      { id: "00", name: "12:00"},
-      { id: "01", name: <input style={{backgroundColor:'transparent', border:0, height:32, maxWidth:150, textAlign:'center'}}type="text" />},
-      { id: "02", name: <input style={{backgroundColor:'transparent', border:0, height:32, maxWidth:150, textAlign:'center'}}type="text" />},
-      { id: "03", name: <input style={{backgroundColor:'transparent', border:0, height:32, maxWidth:150, textAlign:'center'}}type="text" />},
-      { id: "04", name: <input style={{backgroundColor:'transparent', border:0, height:32, maxWidth:150, textAlign:'center'}}type="text" />},
-      { id: "05", name: <input style={{backgroundColor:'transparent', border:0, height:32, maxWidth:150, textAlign:'center'}}type="text" />},
-      { id: "06", name: <input style={{backgroundColor:'transparent', border:0, height:32, maxWidth:150, textAlign:'center'}}type="text" />},
-      { id: "07", name: <input style={{backgroundColor:'transparent', border:0, height:32, maxWidth:150, textAlign:'center'}}type="text" />},
-    ],
-    hora5: [
-      { id: "00", name: "14:00"},
-      { id: "01", name: <input style={{backgroundColor:'transparent', border:0, height:32, maxWidth:150, textAlign:'center'}}type="text" />},
-      { id: "02", name: <input style={{backgroundColor:'transparent', border:0, height:32, maxWidth:150, textAlign:'center'}}type="text" />},
-      { id: "03", name: <input style={{backgroundColor:'transparent', border:0, height:32, maxWidth:150, textAlign:'center'}}type="text" />},
-      { id: "04", name: <input style={{backgroundColor:'transparent', border:0, height:32, maxWidth:150, textAlign:'center'}}type="text" />},
-      { id: "05", name: <input style={{backgroundColor:'transparent', border:0, height:32, maxWidth:150, textAlign:'center'}}type="text" />},
-      { id: "06", name: <input style={{backgroundColor:'transparent', border:0, height:32, maxWidth:150, textAlign:'center'}}type="text" />},
-      { id: "07", name: <input style={{backgroundColor:'transparent', border:0, height:32, maxWidth:150, textAlign:'center'}}type="text" />},
-    ],
-    hora6: [
-      { id: "00", name: "16:00"},
-      { id: "01", name: <input style={{backgroundColor:'transparent', border:0, height:32, maxWidth:150, textAlign:'center'}}type="text" />},
-      { id: "02", name: <input style={{backgroundColor:'transparent', border:0, height:32, maxWidth:150, textAlign:'center'}}type="text" />},
-      { id: "03", name: <input style={{backgroundColor:'transparent', border:0, height:32, maxWidth:150, textAlign:'center'}}type="text" />},
-      { id: "04", name: <input style={{backgroundColor:'transparent', border:0, height:32, maxWidth:150, textAlign:'center'}}type="text" />},
-      { id: "05", name: <input style={{backgroundColor:'transparent', border:0, height:32, maxWidth:150, textAlign:'center'}}type="text" />},
-      { id: "06", name: <input style={{backgroundColor:'transparent', border:0, height:32, maxWidth:150, textAlign:'center'}}type="text" />},
-      { id: "07", name: <input style={{backgroundColor:'transparent', border:0, height:32, maxWidth:150, textAlign:'center'}}type="text" />},
-    ],
-    hora7: [
-      { id: "00", name: "18:00"},
-      { id: "01", name: <input style={{backgroundColor:'transparent', border:0, height:32, maxWidth:150, textAlign:'center'}}type="text" />},
-      { id: "02", name: <input style={{backgroundColor:'transparent', border:0, height:32, maxWidth:150, textAlign:'center'}}type="text" />},
-      { id: "03", name: <input style={{backgroundColor:'transparent', border:0, height:32, maxWidth:150, textAlign:'center'}}type="text" />},
-      { id: "04", name: <input style={{backgroundColor:'transparent', border:0, height:32, maxWidth:150, textAlign:'center'}}type="text" />},
-      { id: "05", name: <input style={{backgroundColor:'transparent', border:0, height:32, maxWidth:150, textAlign:'center'}}type="text" />},
-      { id: "06", name: <input style={{backgroundColor:'transparent', border:0, height:32, maxWidth:150, textAlign:'center'}}type="text" />},
-      { id: "07", name: <input style={{backgroundColor:'transparent', border:0, height:32, maxWidth:150, textAlign:'center'}}type="text" />},
-    ],
-    hora8: [
-      { id: "00", name: "20:00"},
-      { id: "01", name: <input style={{backgroundColor:'transparent', border:0, height:32, maxWidth:150, textAlign:'center'}}type="text" />},
-      { id: "02", name: <input style={{backgroundColor:'transparent', border:0, height:32, maxWidth:150, textAlign:'center'}}type="text" />},
-      { id: "03", name: <input style={{backgroundColor:'transparent', border:0, height:32, maxWidth:150, textAlign:'center'}}type="text" />},
-      { id: "04", name: <input style={{backgroundColor:'transparent', border:0, height:32, maxWidth:150, textAlign:'center'}}type="text" />},
-      { id: "05", name: <input style={{backgroundColor:'transparent', border:0, height:32, maxWidth:150, textAlign:'center'}}type="text" />},
-      { id: "06", name: <input style={{backgroundColor:'transparent', border:0, height:32, maxWidth:150, textAlign:'center'}}type="text" />},
-      { id: "07", name: <input style={{backgroundColor:'transparent', border:0, height:32, maxWidth:150, textAlign:'center'}}type="text" />},
-    ],
-    hora9: [
-      { id: "00", name: "22:00"},
-      { id: "01", name: <input style={{backgroundColor:'transparent', border:0, height:32, maxWidth:150, textAlign:'center'}}type="text" />},
-      { id: "02", name: <input style={{backgroundColor:'transparent', border:0, height:32, maxWidth:150, textAlign:'center'}}type="text" />},
-      { id: "03", name: <input style={{backgroundColor:'transparent', border:0, height:32, maxWidth:150, textAlign:'center'}}type="text" />},
-      { id: "04", name: <input style={{backgroundColor:'transparent', border:0, height:32, maxWidth:150, textAlign:'center'}}type="text" />},
-      { id: "05", name: <input style={{backgroundColor:'transparent', border:0, height:32, maxWidth:150, textAlign:'center'}}type="text" />},
-      { id: "06", name: <input style={{backgroundColor:'transparent', border:0, height:32, maxWidth:150, textAlign:'center'}}type="text" />},
-      { id: "07", name: <input style={{backgroundColor:'transparent', border:0, height:32, maxWidth:150, textAlign:'center'}}type="text" />},
-    ],
-    hora10: [
-      { id: "00", name: "00:00"},
-      { id: "01", name: <input style={{backgroundColor:'transparent', border:0, height:32, maxWidth:150, textAlign:'center'}}type="text" />},
-      { id: "02", name: <input style={{backgroundColor:'transparent', border:0, height:32, maxWidth:150, textAlign:'center'}}type="text" />},
-      { id: "03", name: <input style={{backgroundColor:'transparent', border:0, height:32, maxWidth:150, textAlign:'center'}}type="text" />},
-      { id: "04", name: <input style={{backgroundColor:'transparent', border:0, height:32, maxWidth:150, textAlign:'center'}}type="text" />},
-      { id: "05", name: <input style={{backgroundColor:'transparent', border:0, height:32, maxWidth:150, textAlign:'center'}}type="text" />},
-      { id: "06", name: <input style={{backgroundColor:'transparent', border:0, height:32, maxWidth:150, textAlign:'center'}}type="text" />},
-      { id: "07", name: <input style={{backgroundColor:'transparent', border:0, height:32, maxWidth:150, textAlign:'center'}}type="text" />},
-    ],
-
-  };
-  
-  render() {
-    const columns = 8;
-    return (
-      <SafeAreaView>
-        <FlatList
-          data={this.state.data}
-          keyExtractor={item => item.id}
-          numColumns={8}
-          renderItem={({ item }) => {
-            return (
-              <View style={styles.item}>
-                <Text style={styles.text}>{item.name}</Text>
-              </View>
-            );
-          }}
-        />
-        <FlatList
-          data={this.state.hora1}
-          keyExtractor={item => item.id}
-          numColumns={8}
-          renderItem={({ item }) => {
-            return (
-              <View style={styles.item}>
-                <Text style={styles.text}>{item.name}</Text>
-              </View>
-            );
-          }}
-        />
-        <FlatList
-          data={this.state.hora2}
-          keyExtractor={item => item.id}
-          numColumns={8}
-          renderItem={({ item }) => {
-            return (
-              <View style={styles.item}>
-                <Text style={styles.text}>{item.name}</Text>
-              </View>
-            );
-          }}
-        />
-        <FlatList
-          data={this.state.hora3}
-          keyExtractor={item => item.id}
-          numColumns={8}
-          renderItem={({ item }) => {
-            return (
-              <View style={styles.item}>
-                <Text style={styles.text}>{item.name}</Text>
-              </View>
-            );
-          }}
-        />
-        <FlatList
-          data={this.state.hora4}
-          keyExtractor={item => item.id}
-          numColumns={8}
-          renderItem={({ item }) => {
-            return (
-              <View style={styles.item}>
-                <Text style={styles.text}>{item.name}</Text>
-              </View>
-            );
-          }}
-        />
-        <FlatList
-          data={this.state.hora5}
-          keyExtractor={item => item.id}
-          numColumns={8}
-          renderItem={({ item }) => {
-            return (
-              <View style={styles.item}>
-                <Text style={styles.text}>{item.name}</Text>
-              </View>
-            );
-          }}
-        />
-        <FlatList
-          data={this.state.hora6}
-          keyExtractor={item => item.id}
-          numColumns={8}
-          renderItem={({ item }) => {
-            return (
-              <View style={styles.item}>
-                <Text style={styles.text}>{item.name}</Text>
-              </View>
-            );
-          }}
-        />
-        <FlatList
-          data={this.state.hora7}
-          keyExtractor={item => item.id}
-          numColumns={8}
-          renderItem={({ item }) => {
-            return (
-              <View style={styles.item}>
-                <Text style={styles.text}>{item.name}</Text>
-              </View>
-            );
-          }}
-        />
-        <FlatList
-          data={this.state.hora8}
-          keyExtractor={item => item.id}
-          numColumns={8}
-          renderItem={({ item }) => {
-            return (
-              <View style={styles.item}>
-                <Text style={styles.text}>{item.name}</Text>
-              </View>
-            );
-          }}
-        />
-        <FlatList
-          data={this.state.hora9}
-          keyExtractor={item => item.id}
-          numColumns={8}
-          renderItem={({ item }) => {
-            return (
-              <View style={styles.item}>
-                <Text style={styles.text}>{item.name}</Text>
-              </View>
-            );
-          }}
-        />
-        <FlatList
-          data={this.state.hora10}
-          keyExtractor={item => item.id}
-          numColumns={8}
-          renderItem={({ item }) => {
-            return (
-              <View style={styles.item}>
-                <Text style={styles.text}>{item.name}</Text>
-              </View>
-            );
-          }}
-        />
-      </SafeAreaView>
-      
-    );
+  // função que pega o input escreve na função task e depois é zerado para criar nova tarefa
+  const handleAddTask = () => {
+    Keyboard.dismiss(); {/* Faz com que o teclado desça quando aperto o + */}
+    setTaskItems([...taskItems, task])
+    setTask(null);
   }
+
+  // função que exclui a tarefa
+  // pega a tarefa com base no indez e exclui -> n entendi mt bem
+  // um click exclui -> (excluir arrastando para o lado seria melhor)
+  const completeTask = (index) => {
+    let itemsCopy = [...taskItems];
+    itemsCopy.splice(index, 1);
+    setTaskItems(itemsCopy)
+  }
+
+  return (
+    <View style={styles.container}>
+      {/* Rolagem da tela 
+      Arrumar para que o botão de adicionar tarefa n tenha rolagem por baixo dele
+      (ter um fundo e ficar fixo)
+      */}
+      <ScrollView
+        contentContainerStyle={{
+          flexGrow: 1
+        }}
+        keyboardShouldPersistTaps='handled'
+      >
+
+      <View >
+        <View style={styles.items}>
+          {/* Onde as tarefas vão ficar */}
+          {
+            taskItems.map((item, index) => {
+              return (
+                /*Consegui mudar para click longo */
+                <TouchableOpacity key={index}  onLongPress={() => completeTask(index)}> 
+                  <Task text={item} /> 
+                </TouchableOpacity>
+              )
+            })
+          }
+        </View>
+      </View>
+        
+      </ScrollView>
+
+      {/* Adicionando nova tarefa*/}
+      {/* esses KeyboardAvoidingView faz com que o teclado n atrapalhe*/}
+      <KeyboardAvoidingView 
+        behavior={Platform.OS === "ios" ? "padding" : "height"}
+        style={styles.writeTaskWrapper}
+      >
+        <TextInput style={styles.input} 
+        placeholder={'Adicionar tarefa'} 
+        value={task} 
+        onChangeText={text => setTask(text)} 
+        />
+        <TouchableOpacity 
+          style={styles.button}
+          onPress={() => handleAddTask()}
+        >
+          <MaterialCommunityIcons style={styles.plus} name="plus" color={"white"} size={25} />
+        </TouchableOpacity>
+      </KeyboardAvoidingView>
+      
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
-  FlatList:{height:2},
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+   
+  },
+  button: {
+    opacity: 100,
+    width: 50,
+    height: 50,
+    backgroundColor: "#CF4646",
+    justifyContent: 'center',
+    borderRadius: 50,
+  },
+  plus:{
+    textAlign: 'center',
+  
+  },
   item: {
-    alignItems: "center",
-    textAlign: "center",
-    backgroundColor: "#FF6347",
-    flexGrow: 1,
-    flexBasis: 0,
-    margin: 4,
-    padding: 4,
-    
+    backgroundColor: '#FFF',
+    padding: 15,
+    borderRadius: 10,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginBottom: 20
   },
-  text: {
-    color: "#333333"
+  itemLeft:{
+    flexDirection: 'row',
+    alignItems: 'center',
+    flexWrap: 'wrap'
+
   },
-  inputView: {
-    backgroundColor: 'rgba(0,0,0,0)',
-    position: 'absolute', 
-    top: 0,
-    left: 5,
-    right: 5
-},
+  square: {
+    width: 24,
+    height: 24,
+    backgroundColor: 'red',
+    opacity: 0.4,
+    borderRadius: 5,
+    marginRight: 15
+  },
+  itemText: {
+    maxWidth: '80%'
+  },
+  circular: {
+    width: 12,
+    height: 12,
+    borderColor: 'black',
+    borderWidth: 2,
+    borderRadius: 5
+  },
+  tasksWrapper: {
+    paddingTop: 80,
+    paddingHorizontal: 20,
+  },
+  sectionTitle: {
+    fontSize: 24,
+    fontWeight: 'bold'
+  },
+  items: {
+    marginTop: 30,
+  },
+  writeTaskWrapper: {
+    position: 'absolute',
+    bottom: 30,
+    width: '100%',
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    paddingHorizontal: 10,
+  },
   input: {
-    height: 36,
-        padding: 10,
-        margin: 18,
-        fontSize: 18,
-        borderWidth: 1,
-        borderRadius: 10,
-        borderColor: '#48BBEC',
-        backgroundColor: 'rgba(0,0,0,0)',
-  }
+    paddingVertical: 15,
+    paddingHorizontal: 30,
+    backgroundColor: '#FFF',
+    borderRadius: 60,
+    borderColor: '#C0C0C0',
+    borderWidth: 1,
+    width: 250,
+  },
+  addWrapper: {
+    width: 60,
+    height: 60,
+    backgroundColor: '#FFF',
+    borderRadius: 60,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderColor: '#C0C0C0',
+    borderWidth: 1,
+  },
+  addText: {},
 });
 
-export default App;
+
+
+/* O B S E R V A Ç Õ E S:
+
+MELHORAS:
+- apertar no circula a direita e ele ficar preenchido
+- o quadrado a esquerda ficar transparente -> Deixando em vermelho as tarefas mais importantes
+- 
+ 
+
+VÍDEOS FONTE:
+- https://www.youtube.com/watch?v=0kL6nhutjQ8
+- https://www.youtube.com/watch?v=00HFzh3w1B8
+GITHUB:
+- https://github.com/mattfrances/simpleReactNativeTodoList
+ */
