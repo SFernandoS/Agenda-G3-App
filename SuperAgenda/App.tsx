@@ -35,10 +35,10 @@ function MyTabs() {
         }}
       />
       <Tab.Screen
-        name="Horarios"
+        name="Tarefas"
         component={Times}
         options={{
-          tabBarLabel: 'Horarios',
+          tabBarLabel: 'Tarefas',
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="clock" color={color} size={size} />
           ),
