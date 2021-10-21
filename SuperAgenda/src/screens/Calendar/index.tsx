@@ -33,7 +33,7 @@ export const Botao = () => {
             <NativeBaseProvider>
               <Center flex={1} px="3">
               <Text>
-              Título
+              Título :
               </Text>
                 <EventName />
               </Center>
